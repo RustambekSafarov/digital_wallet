@@ -1,82 +1,95 @@
+import 'package:digital_wallet/pages/home.dart';
+import 'package:digital_wallet/pages/menu.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/material/bottom_navigation_bar.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: HomePage(),
+    home: MainPage(),
   ));
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  Color iconColor = Colors.purple;
+class _MainPageState extends State<MainPage> {
   int index = 0;
+  int _selectedIndex = 0;
+  void onItemTapped(index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  List<Widget> name = [
+    HomePage(),
+    NextPage(),
+    Container(),
+    Container(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-body: Container(),
-
+      body: name[_selectedIndex],
       backgroundColor: Colors.white,
-      bottomNavigationBar: BottomAppBar(
-        elevation: 25,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20, bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    index = 1;
-                  });
-                },
-                child: Container(
-                    width: 35,
-                    height: 35,
-                    child: Image.asset('img/home_icon.png')),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.purple,
+        unselectedItemColor: Colors.grey,
+        iconSize: 30,
+        selectedFontSize: 15,
+        unselectedFontSize: 13,
+        items: const [
+          BottomNavigationBarItem(
+              activeIcon: Icon(
+                Icons.home,
+                color: Colors.purple,
               ),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    index = 2;
-                  });
-                },
-                child: Container(
-                    width: 35,
-                    height: 35,
-                    child: Image.asset('img/more_icon.png')),
+              icon: Icon(
+                Icons.home,
+                color: Colors.grey,
               ),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    index = 3;
-                  });
-                },
-                child: Container(
-                    width: 35,
-                    height: 35,
-                    child: Image.asset('img/partition.png')),
+              label: ''),
+          BottomNavigationBarItem(
+              activeIcon: Icon(
+                Icons.grid_view,
+                color: Colors.purple,
               ),
-              InkWell(
-                onTap: () {
-                  index = 4;
-                },
-                child: Container(
-                    width: 35,
-                    height: 35,
-                    child: Image.asset('img/settings_icon.png')),
+              icon: Icon(
+                Icons.grid_view,
+                color: Colors.grey,
               ),
-            ],
+              label: ''),
+          BottomNavigationBarItem(
+            activeIcon: Icon(
+              Icons.pie_chart,
+              color: Colors.purple,
+            ),
+            icon: Icon(
+              Icons.pie_chart,
+              color: Colors.grey,
+            ),
+            label: '',
           ),
-        ),
+          BottomNavigationBarItem(
+            activeIcon: Icon(
+              Icons.settings,
+              color: Colors.purple,
+            ),
+            icon: Icon(
+              Icons.settings,
+              color: Colors.grey,
+            ),
+            label: '',
+          ),
+        ],
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _selectedIndex,
+        onTap: onItemTapped,
       ),
     );
   }
