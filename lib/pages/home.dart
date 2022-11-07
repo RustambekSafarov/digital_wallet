@@ -11,6 +11,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           child: Flex(
@@ -41,7 +42,9 @@ class _HomePageState extends State<HomePage> {
                               width: 58,
                               height: 58,
                               child: OutlinedButton(
-                                onPressed: () {},
+                                onPressed: () {
+
+                                },
                                 child: Icon(
                                   Icons.arrow_circle_right,
                                   color: Colors.white,
