@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
 class ChartPage extends StatefulWidget {
   const ChartPage({super.key});
 
@@ -86,56 +88,29 @@ class _ChartPageState extends State<ChartPage> {
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w400),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width - 55,
-            height: 142,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 14,
-                      ),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        child: Image.asset('img/group4.png'),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        'Simple Package',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      SizedBox(
-                        width: 64,
-                      ),
-                      Text(
-                        'Rp 50.000',
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
-                      )
-                    ],
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width-86,
-                    child: Divider()),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      '14 GB Internet + 2 GB Streaming, Active Period 30 days',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  )
-                ],
-              ),
-            ),
+          InfoCard(
+            trailing: 'Rp 50.000',
+            img: 'img/group4.png',
+            title: 'Simple Package',
+            subtitle: '14 GB Internet + 2 GB Streaming, Active Period 30 days',
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          InfoCard(
+            trailing: 'Rp 50.000',
+            title: 'Simple Package',
+            img: 'img/group5.png',
+            subtitle: '14 GB Internet + 2 GB Streaming, Active Period 30 days',
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          InfoCard(
+            trailing: 'Rp 50.000',
+            title: 'Simple Package',
+            img: 'img/group6.png',
+            subtitle: '14 GB Internet + 2 GB Streaming, Active Period 30 days',
           )
         ],
       ),

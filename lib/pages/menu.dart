@@ -1,3 +1,6 @@
+import 'package:digital_wallet/pages/bill_payment.dart';
+import 'package:digital_wallet/pages/send_money.dart';
+import 'package:digital_wallet/pages/withdraw.dart';
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatefulWidget {
@@ -14,6 +17,12 @@ class _MenuPageState extends State<MenuPage> {
     'Top up Wallet',
     'Bill payment',
     'Withdraw',
+  ];
+  List pages = [
+    SendMoney(),
+    Container(),
+    BillPayment(),
+    Withdraw(),
   ];
   List name2 = [
     'History Transactions',
@@ -196,7 +205,9 @@ class _MenuPageState extends State<MenuPage> {
                 style: TextStyle(fontSize: 18),
               ),
               leading: leading[index],
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, name[index]);
+              },
             ),
             separatorBuilder: (context, index) => Divider(
               color: Color.fromARGB(255, 226, 226, 226),

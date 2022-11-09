@@ -1,6 +1,9 @@
+import 'package:digital_wallet/pages/bill_payment.dart';
 import 'package:digital_wallet/pages/chart.dart';
 import 'package:digital_wallet/pages/home.dart';
 import 'package:digital_wallet/pages/menu.dart';
+import 'package:digital_wallet/pages/send_money.dart';
+import 'package:digital_wallet/pages/withdraw.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,6 +11,10 @@ void main() {
     MaterialApp(
       routes: {
         'more': (context) => MenuPage(),
+        'Send money': (context) => SendMoney(),
+        'Top up Wallet': (context) => Container(),
+        'Bill payment': (context) => BillPayment(),
+        'Withdraw': (context) => Withdraw(),
       },
       debugShowCheckedModeBanner: false,
       home: MainPage(),
@@ -54,11 +61,11 @@ class _MainPageState extends State<MainPage> {
         items: const [
           BottomNavigationBarItem(
             activeIcon: Icon(
-              Icons.home,
+              Icons.home_rounded,
               color: Colors.blue,
             ),
             icon: Icon(
-              Icons.home,
+              Icons.home_rounded,
               color: Colors.grey,
             ),
             label: 'Home',
@@ -86,11 +93,11 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
             activeIcon: Icon(
-              Icons.settings,
+              Icons.settings_rounded,
               color: Colors.blue,
             ),
             icon: Icon(
-              Icons.settings,
+              Icons.settings_rounded,
               color: Colors.grey,
             ),
             label: 'Settings',

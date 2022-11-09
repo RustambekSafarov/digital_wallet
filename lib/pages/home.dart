@@ -21,8 +21,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 370,
-                decoration: BoxDecoration(
-                ),
+                decoration: BoxDecoration(),
                 child: Column(
                   children: [
                     const SizedBox(height: 80),
@@ -42,7 +41,9 @@ class _HomePageState extends State<HomePage> {
                               width: 58,
                               height: 58,
                               child: OutlinedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'Send money');
+                                },
                                 child: Icon(
                                   Icons.arrow_circle_right,
                                   color: Colors.white,
@@ -90,7 +91,9 @@ class _HomePageState extends State<HomePage> {
                               width: 58,
                               height: 58,
                               child: OutlinedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'Bill payment');
+                                },
                                 child: Icon(
                                   Icons.wallet,
                                   color: Colors.white,
@@ -114,7 +117,9 @@ class _HomePageState extends State<HomePage> {
                               width: 58,
                               height: 58,
                               child: OutlinedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'Withdraw');
+                                },
                                 child: Icon(
                                   Icons.grid_view,
                                   color: Colors.white,
