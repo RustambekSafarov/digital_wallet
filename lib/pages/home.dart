@@ -11,6 +11,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFE5E5E5),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
@@ -21,7 +22,6 @@ class _HomePageState extends State<HomePage> {
                 width: MediaQuery.of(context).size.width,
                 height: 370,
                 decoration: BoxDecoration(
-                  color: Colors.white,
                 ),
                 child: Column(
                   children: [
@@ -42,9 +42,7 @@ class _HomePageState extends State<HomePage> {
                               width: 58,
                               height: 58,
                               child: OutlinedButton(
-                                onPressed: () {
-
-                                },
+                                onPressed: () {},
                                 child: Icon(
                                   Icons.arrow_circle_right,
                                   color: Colors.white,
@@ -142,7 +140,7 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 child: Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 240, 240, 240),
+                      color: Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40),
                         topRight: Radius.circular(40),

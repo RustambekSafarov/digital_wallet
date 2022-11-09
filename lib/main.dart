@@ -1,12 +1,18 @@
+import 'package:digital_wallet/pages/chart.dart';
 import 'package:digital_wallet/pages/home.dart';
 import 'package:digital_wallet/pages/menu.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: MainPage(),
-  ));
+  runApp(
+    MaterialApp(
+      routes: {
+        'more': (context) => MenuPage(),
+      },
+      debugShowCheckedModeBanner: false,
+      home: MainPage(),
+    ),
+  );
 }
 
 class MainPage extends StatefulWidget {
@@ -27,67 +33,70 @@ class _MainPageState extends State<MainPage> {
 
   List<Widget> name = [
     HomePage(),
-    NextPage(),
-    Container(),
+    MenuPage(),
+    ChartPage(),
     Container(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: name[_selectedIndex],
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFE5E5E5),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.purple,
-        unselectedItemColor: Colors.grey,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: Colors.white,
         iconSize: 30,
-        selectedFontSize: 15,
+        selectedFontSize: 13,
         unselectedFontSize: 13,
         items: const [
           BottomNavigationBarItem(
-              activeIcon: Icon(
-                Icons.home,
-                color: Colors.purple,
-              ),
-              icon: Icon(
-                Icons.home,
-                color: Colors.grey,
-              ),
-              label: ''),
+            activeIcon: Icon(
+              Icons.home,
+              color: Colors.blue,
+            ),
+            icon: Icon(
+              Icons.home,
+              color: Colors.grey,
+            ),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
               activeIcon: Icon(
-                Icons.grid_view,
-                color: Colors.purple,
+                Icons.grid_view_rounded,
+                color: Colors.blue,
               ),
               icon: Icon(
-                Icons.grid_view,
+                Icons.grid_view_rounded,
                 color: Colors.grey,
               ),
-              label: ''),
+              label: 'More'),
           BottomNavigationBarItem(
             activeIcon: Icon(
               Icons.pie_chart,
-              color: Colors.purple,
+              color: Colors.blue,
             ),
             icon: Icon(
               Icons.pie_chart,
               color: Colors.grey,
             ),
-            label: '',
+            label: 'Graph',
           ),
           BottomNavigationBarItem(
             activeIcon: Icon(
               Icons.settings,
-              color: Colors.purple,
+              color: Colors.blue,
             ),
             icon: Icon(
               Icons.settings,
               color: Colors.grey,
             ),
-            label: '',
+            label: 'Settings',
           ),
         ],
-        type: BottomNavigationBarType.shifting,
+        type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         onTap: onItemTapped,
       ),
