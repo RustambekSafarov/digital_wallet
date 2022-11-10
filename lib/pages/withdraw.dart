@@ -11,6 +11,7 @@ class _WithdrawState extends State<Withdraw> {
   String txt = '620.000';
   bool selected = true;
   String card_name = 'Personal Account';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,6 +87,12 @@ class _WithdrawState extends State<Withdraw> {
           ),
           child: Center(
             child: ListTile(
+              onTap: (() {
+                setState(() {
+                  txt = '620.000';
+                  card_name = 'Personal Account';
+                });
+              }),
               title: const Text('Personal Account'),
               subtitle: Text(
                 '**** - **** - 9876',
@@ -100,6 +107,7 @@ class _WithdrawState extends State<Withdraw> {
                 groupValue: card_name,
                 onChanged: (value) {
                   setState(() {
+                    txt = '620.000';
                     card_name = value.toString();
                   });
                 },
@@ -122,6 +130,12 @@ class _WithdrawState extends State<Withdraw> {
           ),
           child: Center(
             child: ListTile(
+              onTap: () {
+                setState(() {
+                  txt = '1.000.000';
+                  card_name = 'Business Account';
+                });
+              },
               title: const Text('Business Account'),
               subtitle: Text(
                 '**** - **** - 9876',
@@ -136,6 +150,7 @@ class _WithdrawState extends State<Withdraw> {
                 groupValue: card_name,
                 onChanged: (value) {
                   setState(() {
+                    txt = '1.000.000';
                     card_name = value.toString();
                   });
                 },
@@ -158,6 +173,12 @@ class _WithdrawState extends State<Withdraw> {
           ),
           child: Center(
             child: ListTile(
+              onTap: () {
+                setState(() {
+                  txt = '800.000';
+                  card_name = 'Family Account';
+                });
+              },
               title: const Text('Family Account'),
               subtitle: Text(
                 '**** - **** - 9876',
@@ -172,6 +193,7 @@ class _WithdrawState extends State<Withdraw> {
                 groupValue: card_name,
                 onChanged: (value) {
                   setState(() {
+                    txt = '800.000';
                     card_name = value.toString();
                   });
                 },
